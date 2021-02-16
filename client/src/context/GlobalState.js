@@ -19,8 +19,10 @@ export const GlobalProvider = ({ children }) => {
 	// Actions
 	async function getTransactions() {
 		try {
+			// make request to back end route
 			const res = await axios.get('/api/v1/transactions');
 
+			// dispatch type to reducer
 			dispatch({
 				type: 'GET_TRANSACTIONS',
 				payload: res.data.data
